@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Digitaya helps local businesses grow online with Google Business Profile setup, local SEO, and digital presence services">
     <title>Digitaya - Grow Your Local Business Online</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,7 +41,7 @@
             padding: 0 20px;
         }
         
-        /* Header - Responsive */
+        /* Header */
         header {
             background-color: var(--white);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -57,7 +58,7 @@
         }
         
         .logo {
-            font-size: 22px;
+            font-size: clamp(20px, 4vw, 24px);
             font-weight: 700;
             color: var(--primary-blue);
         }
@@ -68,7 +69,7 @@
         
         .nav-links {
             display: flex;
-            gap: 20px;
+            gap: clamp(15px, 2vw, 25px);
         }
         
         .nav-links a {
@@ -76,7 +77,7 @@
             color: var(--dark-gray);
             font-weight: 500;
             transition: color 0.3s;
-            font-size: 14px;
+            font-size: clamp(14px, 1.8vw, 16px);
         }
         
         .menu-toggle {
@@ -85,10 +86,10 @@
             font-size: 24px;
         }
         
-        /* Hero Section - Responsive */
+        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--primary-blue), var(--teal));
-            padding: 150px 0 80px;
+            padding: clamp(100px, 15vw, 150px) 0 clamp(60px, 10vw, 80px);
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -103,12 +104,13 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.1);
             animation: fadeInUp 1s ease;
             line-height: 1.2;
+            padding: 0 15px;
         }
         
         .hero p {
             font-size: clamp(16px, 2.5vw, 22px);
             max-width: 700px;
-            margin: 0 auto 30px;
+            margin: 0 auto clamp(20px, 4vw, 30px);
             color: rgba(255,255,255,0.9);
             animation: fadeInUp 1s ease 0.2s forwards;
             opacity: 0;
@@ -117,7 +119,7 @@
         
         .hero-buttons {
             display: flex;
-            gap: 15px;
+            gap: clamp(10px, 2vw, 15px);
             justify-content: center;
             animation: fadeInUp 1s ease 0.4s forwards;
             opacity: 0;
@@ -126,7 +128,7 @@
         
         .btn {
             display: inline-block;
-            padding: 12px 25px;
+            padding: clamp(10px, 2vw, 12px) clamp(20px, 3vw, 25px);
             background-color: white;
             color: var(--primary-blue);
             border-radius: 50px;
@@ -136,7 +138,14 @@
             border: none;
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            font-size: 14px;
+            font-size: clamp(14px, 1.8vw, 16px);
+        }
+        
+        .btn:hover {
+            background-color: var(--light-teal);
+            color: var(--dark-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
         }
         
         .btn-teal {
@@ -144,8 +153,13 @@
             color: white;
         }
         
+        .btn-teal:hover {
+            background-color: #ea580c;
+            color: white;
+        }
+        
         .hero-image {
-            margin-top: 40px;
+            margin-top: clamp(30px, 5vw, 40px);
             position: relative;
             animation: float 6s ease-in-out infinite;
         }
@@ -153,18 +167,20 @@
         .hero-image img {
             width: 100%;
             max-width: 800px;
+            height: auto;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            object-fit: cover;
         }
         
-        /* About Section - Responsive */
+        /* About Section */
         .section {
-            padding: 60px 0;
+            padding: clamp(40px, 8vw, 60px) 0;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: clamp(30px, 5vw, 40px);
         }
         
         .section-title h2 {
@@ -183,13 +199,38 @@
         .about-content {
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: clamp(20px, 4vw, 30px);
+        }
+        
+        @media (min-width: 768px) {
+            .about-content {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+        
+        .about-text {
+            flex: 1;
         }
         
         .about-text h3 {
             font-size: clamp(22px, 3vw, 28px);
             color: var(--teal);
             margin-bottom: 15px;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
         }
         
         .services-btn {
@@ -203,55 +244,212 @@
             color: white;
         }
         
-        /* Services Section - Responsive */
+        /* Services Section */
         .services {
             background-color: var(--lighter-gray);
         }
         
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+            gap: clamp(15px, 3vw, 20px);
         }
         
-        /* Why Choose Us - Responsive */
+        .service-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: clamp(20px, 3vw, 30px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            font-size: clamp(32px, 5vw, 40px);
+            color: var(--teal);
+            margin-bottom: clamp(15px, 3vw, 20px);
+        }
+        
+        .service-card h3 {
+            font-size: clamp(18px, 3vw, 22px);
+            margin-bottom: 12px;
+            color: var(--dark-blue);
+        }
+        
+        .service-card p {
+            margin-bottom: 15px;
+            font-size: clamp(14px, 2vw, 16px);
+        }
+        
+        .service-card .price {
+            font-size: clamp(18px, 3vw, 20px);
+            font-weight: 700;
+            color: var(--teal);
+            margin: 15px 0;
+        }
+        
+        /* Why Choose Us */
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+            gap: clamp(15px, 3vw, 20px);
         }
         
-        /* Testimonials - Responsive */
+        .feature {
+            text-align: center;
+            padding: clamp(20px, 3vw, 30px) clamp(15px, 2vw, 20px);
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .feature-icon {
+            font-size: clamp(32px, 5vw, 40px);
+            color: var(--primary-blue);
+            margin-bottom: clamp(15px, 3vw, 20px);
+        }
+        
+        .feature h3 {
+            font-size: clamp(18px, 2.5vw, 20px);
+            margin-bottom: 12px;
+            color: var(--dark-blue);
+        }
+        
+        .feature p {
+            font-size: clamp(14px, 2vw, 16px);
+        }
+        
+        /* Testimonials */
         .testimonials {
             background-color: var(--lighter-gray);
         }
         
         .testimonial-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+            gap: clamp(15px, 3vw, 20px);
         }
         
-        /* Contact Form - Responsive */
-        .contact-form {
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
+        .testimonial-card {
             background-color: var(--white);
-            padding: 30px;
+            padding: clamp(20px, 3vw, 30px);
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             border: 1px solid #e2e8f0;
         }
         
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: clamp(15px, 3vw, 20px);
+            font-size: clamp(14px, 2vw, 16px);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: clamp(10px, 2vw, 15px);
+        }
+        
+        .author-avatar {
+            width: clamp(40px, 8vw, 50px);
+            height: clamp(40px, 8vw, 50px);
+            border-radius: 50%;
+            background-color: var(--light-teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--teal);
+            font-weight: bold;
+            font-size: clamp(16px, 3vw, 18px);
+        }
+        
+        .author-info h4 {
+            font-size: clamp(16px, 2.5vw, 18px);
+            color: var(--dark-blue);
+        }
+        
+        .author-info p {
+            font-size: clamp(12px, 2vw, 14px);
+            color: var(--dark-gray);
+        }
+        
+        /* Become Agent */
+        .agent-section {
+            background: linear-gradient(135deg, var(--primary-blue), var(--teal));
+            color: white;
+            text-align: center;
+            padding: clamp(40px, 8vw, 60px) 0;
+        }
+        
+        .agent-section h2 {
+            color: white;
+            margin-bottom: clamp(15px, 3vw, 20px);
+            font-size: clamp(28px, 4vw, 36px);
+        }
+        
+        .agent-section p {
+            max-width: 700px;
+            margin: 0 auto clamp(20px, 5vw, 40px);
+            font-size: clamp(16px, 2.5vw, 18px);
+            padding: 0 15px;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: clamp(20px, 4vw, 30px);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .form-group {
+            margin-bottom: clamp(15px, 3vw, 20px);
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: clamp(14px, 2vw, 16px);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: clamp(10px, 2vw, 12px) clamp(12px, 2vw, 15px);
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(14px, 2vw, 16px);
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+        
         .submit-btn {
             background-color: var(--teal);
             color: white;
-            padding: 12px 25px;
+            padding: clamp(10px, 2vw, 12px) clamp(20px, 3vw, 25px);
             font-weight: 700;
-            font-size: 14px;
+            font-size: clamp(14px, 1.8vw, 16px);
             font-family: 'Poppins', sans-serif;
             width: 100%;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
         }
         
         .submit-btn:hover {
@@ -264,21 +462,95 @@
         /* Floating WhatsApp Button */
         .whatsapp-float {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: clamp(15px, 3vw, 20px);
+            right: clamp(15px, 3vw, 20px);
             background-color: #25D366;
             color: white;
-            width: 50px;
-            height: 50px;
+            width: clamp(50px, 8vw, 60px);
+            height: clamp(50px, 8vw, 60px);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            font-size: clamp(20px, 4vw, 24px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
             z-index: 99;
             transition: all 0.3s;
             text-decoration: none;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+        }
+        
+        .whatsapp-tooltip {
+            position: absolute;
+            right: calc(100% + 10px);
+            background-color: white;
+            color: var(--dark-gray);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            white-space: nowrap;
+        }
+        
+        .whatsapp-float:hover .whatsapp-tooltip {
+            opacity: 1;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: white;
+            padding: clamp(30px, 6vw, 50px) 0 20px;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: clamp(15px, 3vw, 30px);
+            margin-bottom: clamp(20px, 4vw, 30px);
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: clamp(14px, 2vw, 16px);
+        }
+        
+        .footer-links a:hover {
+            color: var(--light-teal);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: clamp(15px, 3vw, 20px);
+            margin-bottom: clamp(20px, 4vw, 30px);
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: clamp(18px, 3vw, 20px);
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--light-teal);
+        }
+        
+        .copyright {
+            font-size: clamp(12px, 2vw, 14px);
+            opacity: 0.8;
         }
         
         /* Mobile Menu */
@@ -304,16 +576,7 @@
                 display: block;
             }
             
-            .hero {
-                padding: 120px 0 60px;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn {
+            .hero-buttons .btn {
                 width: 80%;
                 max-width: 250px;
             }
@@ -341,6 +604,23 @@
             100% {
                 transform: translateY(0px);
             }
+        }
+        
+        /* Image Optimization */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Lazy Loading */
+        .lazy {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .lazy.loaded {
+            opacity: 1;
         }
     </style>
 </head>
@@ -375,7 +655,14 @@
                     <a href="#contact" class="btn btn-teal"><i class="fas fa-phone-alt"></i> Talk to Expert</a>
                 </div>
                 <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Happy business owner using digital tools">
+                    <img 
+                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Crect width='800' height='500' fill='%23e2e8f0'/%3E%3C/svg%3E" 
+                        data-src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                        alt="Happy business owner using digital tools"
+                        class="lazy"
+                        width="800"
+                        height="500"
+                    >
                 </div>
             </div>
         </div>
@@ -396,7 +683,14 @@
                     <a href="#services" class="btn services-btn">Our Services</a>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Local business owner using digital tools">
+                    <img 
+                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Crect width='800' height='500' fill='%23e2e8f0'/%3E%3C/svg%3E" 
+                        data-src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                        alt="Local business owner using digital tools"
+                        class="lazy"
+                        width="800"
+                        height="500"
+                    >
                 </div>
             </div>
         </div>
@@ -419,8 +713,149 @@
                     <div class="price">₹500</div>
                     <a href="#contact" class="btn">Create My Profile</a>
                 </div>
-                <!-- Other service cards... -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Business Photo & Post Management</h3>
+                    <p>Professional photos and regular posts to keep your profile active and engaging.</p>
+                    <div class="price">₹300/month</div>
+                    <a href="#contact" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp Business Setup</h3>
+                    <p>Professional WhatsApp Business account setup with catalog and automated replies.</p>
+                    <div class="price">₹400</div>
+                    <a href="#contact" class="btn">Get Started</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                    <h3>Facebook Page Creation</h3>
+                    <p>Professional Facebook Business page setup with cover photo and basic optimization.</p>
+                    <div class="price">₹400</div>
+                    <a href="#contact" class="btn">Create My Page</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <h3>Digital Visiting Card Design</h3>
+                    <p>Modern digital business card design that you can share via WhatsApp or other platforms.</p>
+                    <div class="price">₹300</div>
+                    <a href="#contact" class="btn">Order Now</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Local SEO Package</h3>
+                    <p>Complete local search optimization including citations and directory listings.</p>
+                    <div class="price">₹1500</div>
+                    <a href="#contact" class="btn">Boost My Visibility</a>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why-us" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Digitaya</h2>
+                <p>We're different from other digital service providers</p>
+            </div>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Fast Setup</h3>
+                    <p>Your Google Business Profile will be live within 24 hours of providing details.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Reliable Service</h3>
+                    <p>100% approval rate for GBP listings with our optimized setup process.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Personal Support</h3>
+                    <p>Direct WhatsApp support to answer all your questions after setup.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <h3>One-Time Cost</h3>
+                    <p>No recurring fees for basic setup. Pay once and own your profile forever.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="section testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Trusted by Local Businesses</h2>
+                <p>What our clients say about our services</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Digitaya set up my Google profile in less than a day. I started getting calls from customers the very next week. Best ₹500 I've ever spent on my business!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">R</div>
+                        <div class="author-info">
+                            <h4>Rajesh Tailor</h4>
+                            <p>Raj Tailors, Mumbai</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "As a small bakery owner, I didn't know much about digital marketing. Digitaya made it so simple and now 60% of my new customers find me through Google."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">P</div>
+                        <div class="author-info">
+                            <h4>Priya Bakery</h4>
+                            <p>Sweet Delights, Bangalore</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "The WhatsApp Business setup has helped me organize customer inquiries better. Now I don't miss any orders and can send my menu with one click."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <div class="author-info">
+                            <h4>Sanjay Catering</h4>
+                            <p>Home Kitchen, Delhi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Become Agent -->
+    <section id="agent" class="section agent-section">
+        <div class="container">
+            <h2>Become a Digitaya Growth Partner</h2>
+            <p>Join our network of local agents and earn rewards by helping businesses in your area grow online. No experience needed - we provide full training and support.</p>
+            <a href="#contact" class="btn">Join as Agent</a>
         </div>
     </section>
 
@@ -433,22 +868,105 @@
             </div>
             <div class="contact-form">
                 <form>
-                    <!-- Form fields... -->
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="business">Business Name</label>
+                        <input type="text" id="business" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Needed</label>
+                        <select id="service">
+                            <option value="">Select a service</option>
+                            <option value="gbp">Google Business Profile Setup</option>
+                            <option value="photos">Photo & Post Management</option>
+                            <option value="whatsapp">WhatsApp Business Setup</option>
+                            <option value="facebook">Facebook Page Creation</option>
+                            <option value="card">Digital Visiting Card</option>
+                            <option value="agent">Become an Agent</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message (Optional)</label>
+                        <textarea id="message"></textarea>
+                    </div>
                     <button type="submit" class="btn submit-btn">Submit</button>
                 </form>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="logo" style="color: white; margin-bottom: 30px;">Digitaya<span>.</span></div>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#why-us">Why Us</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+                <a href="#agent">Become Agent</a>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Digitaya. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
     <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/919876543210" class="whatsapp-float">
         <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Chat with us</span>
     </a>
 
     <script>
         // Mobile menu toggle
         document.getElementById('menuToggle').addEventListener('click', function() {
             document.getElementById('navLinks').classList.toggle('active');
+        });
+
+        // Lazy loading images
+        document.addEventListener("DOMContentLoaded", function() {
+            const lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+            
+            if ("IntersectionObserver" in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove("lazy");
+                            lazyImage.classList.add("loaded");
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            } else {
+                // Fallback for browsers without IntersectionObserver
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImage.src = lazyImage.dataset.src;
+                    lazyImage.classList.remove("lazy");
+                    lazyImage.classList.add("loaded");
+                });
+            }
         });
     </script>
 </body>
