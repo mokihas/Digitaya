@@ -96,6 +96,41 @@
             color: white;
         }
         
+        /* Floating Icons */
+        .floating-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .floating-icon {
+            position: absolute;
+            color: rgba(255,255,255,0.6);
+            font-size: 24px;
+            animation: floatIcon 10s linear infinite;
+        }
+        
+        @keyframes floatIcon {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
         .hero h1 {
             font-size: clamp(32px, 5vw, 52px);
             font-weight: 800;
@@ -105,6 +140,8 @@
             animation: fadeInUp 1s ease;
             line-height: 1.2;
             padding: 0 15px;
+            position: relative;
+            z-index: 2;
         }
         
         .hero p {
@@ -115,6 +152,8 @@
             animation: fadeInUp 1s ease 0.2s forwards;
             opacity: 0;
             padding: 0 15px;
+            position: relative;
+            z-index: 2;
         }
         
         .hero-buttons {
@@ -124,6 +163,8 @@
             animation: fadeInUp 1s ease 0.4s forwards;
             opacity: 0;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
         }
         
         .btn {
@@ -164,6 +205,8 @@
             justify-content: center;
             width: 100%;
             margin-top: clamp(30px, 5vw, 40px);
+            position: relative;
+            z-index: 2;
         }
         
         .hero-image {
@@ -180,6 +223,15 @@
             .hero-image {
                 width: auto;
                 max-width: 100%;
+            }
+            .floating-icon {
+                font-size: 28px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .floating-icon {
+                font-size: 18px;
             }
         }
         
@@ -367,16 +419,16 @@
         }
         
         .author-avatar {
-            width: clamp(40px, 8vw, 50px);
-            height: clamp(40px, 8vw, 50px);
+            width: clamp(50px, 8vw, 60px);
+            height: clamp(50px, 8vw, 60px);
             border-radius: 50%;
-            background-color: var(--light-teal);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--teal);
-            font-weight: bold;
-            font-size: clamp(16px, 3vw, 18px);
+            overflow: hidden;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         .author-info h4 {
@@ -467,6 +519,46 @@
             color: white;
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        /* Contact Info Section */
+        .contact-info {
+            background-color: var(--lighter-gray);
+            padding: clamp(40px, 8vw, 60px) 0;
+        }
+        
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .contact-info-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        
+        .contact-info-icon {
+            font-size: 36px;
+            color: var(--teal);
+            margin-bottom: 20px;
+        }
+        
+        .contact-info-card h3 {
+            font-size: 22px;
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+        }
+        
+        .contact-info-card p {
+            margin-bottom: 10px;
+            font-size: 16px;
         }
         
         /* Floating WhatsApp Button */
@@ -656,6 +748,14 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <div class="floating-icons">
+            <div class="floating-icon" style="top:10%; left:10%;"><i class="fas fa-search-location"></i></div>
+            <div class="floating-icon" style="top:20%; left:80%;"><i class="fas fa-chart-line"></i></div>
+            <div class="floating-icon" style="top:70%; left:15%;"><i class="fas fa-store-alt"></i></div>
+            <div class="floating-icon" style="top:80%; left:85%;"><i class="fas fa-mobile-alt"></i></div>
+            <div class="floating-icon" style="top:40%; left:5%;"><i class="fab fa-google"></i></div>
+            <div class="floating-icon" style="top:50%; left:90%;"><i class="fas fa-globe"></i></div>
+        </div>
         <div class="container">
             <div class="hero-content">
                 <h1>Help Your Business Get Found on Google</h1>
@@ -665,15 +765,15 @@
                     <a href="#contact" class="btn btn-teal"><i class="fas fa-phone-alt"></i> Talk to Expert</a>
                 </div>
                 <div class="hero-image-container">
-    <img 
-        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Crect width='800' height='500' fill='%23e2e8f0'/%3E%3C/svg%3E" 
-        data-src="https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg" 
-        alt="Business owner using digital tools on laptop"
-        class="lazy hero-image"
-        width="800"
-        height="500"
-    >
-</div>
+                    <img 
+                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Crect width='800' height='500' fill='%23e2e8f0'/%3E%3C/svg%3E" 
+                        data-src="https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg" 
+                        alt="Business owner using digital tools on laptop"
+                        class="lazy hero-image"
+                        width="800"
+                        height="500"
+                    >
+                </div>
             </div>
         </div>
     </section>
@@ -693,15 +793,15 @@
                     <a href="#services" class="btn services-btn">Our Services</a>
                 </div>
                 <div class="about-image">
-    <img 
-        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Crect width='800' height='500' fill='%23e2e8f0'/%3E%3C/svg%3E" 
-        data-src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg" 
-        alt="Team discussing digital marketing strategies"
-        class="lazy"
-        width="800"
-        height="500"
-    >
-</div>
+                    <img 
+                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Crect width='800' height='500' fill='%23e2e8f0'/%3E%3C/svg%3E" 
+                        data-src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg" 
+                        alt="Team discussing digital marketing strategies"
+                        class="lazy"
+                        width="800"
+                        height="500"
+                    >
+                </div>
             </div>
         </div>
     </section>
@@ -825,7 +925,9 @@
                         "Digitaya set up my Google profile in less than a day. I started getting calls from customers the very next week. Best ₹500 I've ever spent on my business!"
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-avatar">R</div>
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rajesh Tailor">
+                        </div>
                         <div class="author-info">
                             <h4>Rajesh Tailor</h4>
                             <p>Raj Tailors, Mumbai</p>
@@ -837,7 +939,9 @@
                         "As a small bakery owner, I didn't know much about digital marketing. Digitaya made it so simple and now 60% of my new customers find me through Google."
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-avatar">P</div>
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Bakery">
+                        </div>
                         <div class="author-info">
                             <h4>Priya Bakery</h4>
                             <p>Sweet Delights, Bangalore</p>
@@ -849,7 +953,9 @@
                         "The WhatsApp Business setup has helped me organize customer inquiries better. Now I don't miss any orders and can send my menu with one click."
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-avatar">S</div>
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Sanjay Catering">
+                        </div>
                         <div class="author-info">
                             <h4>Sanjay Catering</h4>
                             <p>Home Kitchen, Delhi</p>
@@ -913,6 +1019,42 @@
         </div>
     </section>
 
+    <!-- Contact Info Section -->
+    <section class="section contact-info">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-info-grid">
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Location</h3>
+                    <p>3rd Floor, 86-90 Paul Street</p>
+                    <p>London, England, EC2A 4NE</p>
+                </div>
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p>Reece@leads2appts.com</p>
+                </div>
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Phone</h3>
+                    <p>+44 7549 273392</p>
+                    <h3 style="margin-top: 20px;">Business Hours</h3>
+                    <p>Monday - Friday: 9am - 6pm PST</p>
+                    <p>Saturday - Sunday: Closed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -932,13 +1074,13 @@
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <div class="copyright">
-                &copy; 2025 Digitaya. All rights reserved.
+                &copy; 2023 Digitaya. All rights reserved.
             </div>
         </div>
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/919101896094" class="whatsapp-float">
+    <a href="https://wa.me/447549273392" class="whatsapp-float">
         <i class="fab fa-whatsapp"></i>
         <span class="whatsapp-tooltip">Chat with us</span>
     </a>
