@@ -11,21 +11,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta name="google-site-verification" content="3DzOCOL8yURpqcLgJo2s289mPGpMsFyk150KmMhv_6Y" />
     <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-M5K8N4VC');</script>
-<!-- End Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-M5K8N4VC');</script>
+    <!-- End Google Tag Manager -->
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-S8WWSWH7L5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-S8WWSWH7L5');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S8WWSWH7L5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S8WWSWH7L5');
+    </script>
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+      (function() {
+        emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
+      })();
+    </script>
     <style>
         :root {
             --primary-blue: #2563eb;
@@ -636,6 +642,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         margin-bottom: 20px;
     }
 }
+
+        /* Form Success/Error Messages */
+        .form-message {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+        
+        .form-message.success {
+            background-color: #d1fae5;
+            color: #065f46;
+            display: block;
+        }
+        
+        .form-message.error {
+            background-color: #fee2e2;
+            color: #b91c1c;
+            display: block;
+        }
+        
         /* Floating WhatsApp Button */
         .whatsapp-float {
             position: fixed;
@@ -1056,7 +1084,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </section>
 
-   <!-- Replace the existing Contact Form section with this code -->
+   <!-- Contact Form Section -->
 <section id="contact" class="section">
     <div class="container">
         <div class="section-title">
@@ -1066,37 +1094,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="contact-columns">
             <!-- Left Column - Contact Form -->
             <div class="contact-form-column">
-                <form class="contact-form">
+                <form id="contact-form" class="contact-form">
+                    <div id="form-message" class="form-message" style="display: none;"></div>
+                    
                     <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" required>
+                        <label for="from_name">Your Name</label>
+                        <input type="text" id="from_name" name="from_name" required>
                     </div>
                     <div class="form-group">
-                        <label for="business">Business Name</label>
-                        <input type="text" id="business" required>
+                        <label for="business_name">Business Name</label>
+                        <input type="text" id="business_name" name="business_name" required>
                     </div>
                     <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" required>
+                        <label for="phone_number">Phone Number</label>
+                        <input type="tel" id="phone_number" name="phone_number" required>
                     </div>
                     <div class="form-group">
-                        <label for="service">Service Needed</label>
-                        <select id="service">
-                            <option value="">Select a service</option>
-                            <option value="gbp">Google Business Profile Setup</option>
-                            <option value="photos">Photo & Post Management</option>
-                            <option value="whatsapp">WhatsApp Business Setup</option>
-                            <option value="facebook">Facebook Page Creation</option>
-                            <option value="card">Digital Visiting Card</option>
-                            <option value="agent">Become an Agent</option>
-                            <option value="other">Other</option>
+                        <label for="service_needed">Service Needed</label>
+                        <select id="service_needed" name="service_needed" required>
+                            <option value="" disabled selected>Select a service</option>
+                            <option value="Google Business Profile Setup">Google Business Profile Setup</option>
+                            <option value="Photo & Post Management">Photo & Post Management</option>
+                            <option value="WhatsApp Business Setup">WhatsApp Business Setup</option>
+                            <option value="Facebook Page Creation">Facebook Page Creation</option>
+                            <option value="Digital Visiting Card">Digital Visiting Card</option>
+                            <option value="Become an Agent">Become an Agent</option>
+                            <option value="Other">Other</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="message">Message (Optional)</label>
-                        <textarea id="message"></textarea>
+                        <textarea id="message" name="message"></textarea>
                     </div>
-                    <button type="submit" class="btn submit-btn">Submit</button>
+                    <button type="submit" class="btn submit-btn" id="submit-btn">Submit</button>
                 </form>
             </div>
             
@@ -1213,6 +1243,51 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     lazyImage.classList.add("loaded");
                 });
             }
+
+            // EmailJS Form Submission
+            const contactForm = document.getElementById('contact-form');
+            const formMessage = document.getElementById('form-message');
+            const submitBtn = document.getElementById('submit-btn');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Change button text and disable during submission
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+                
+                // Send form data via EmailJS
+                emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+                    .then(function() {
+                        // Show success message
+                        formMessage.textContent = 'Thank you! Your message has been sent successfully. We will contact you soon.';
+                        formMessage.className = 'form-message success';
+                        formMessage.style.display = 'block';
+                        
+                        // Reset form
+                        contactForm.reset();
+                        
+                        // Scroll to show message
+                        formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }, function(error) {
+                        // Show error message
+                        formMessage.textContent = 'Oops! Something went wrong. Please try again later or contact us directly.';
+                        formMessage.className = 'form-message error';
+                        formMessage.style.display = 'block';
+                        
+                        console.error('EmailJS Error:', error);
+                    })
+                    .finally(function() {
+                        // Reset button
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Submit';
+                        
+                        // Hide message after 5 seconds
+                        setTimeout(function() {
+                            formMessage.style.display = 'none';
+                        }, 5000);
+                    });
+            });
         });
     </script>
 </body>
