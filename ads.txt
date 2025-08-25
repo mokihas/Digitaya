@@ -1,0 +1,4 @@
+# ads.txt for digitaya.com
+# Created: July 25, 2025
+
+google.com, pub-8373245520045377, DIRECT, f08c47fec0942fa0
