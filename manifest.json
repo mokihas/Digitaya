@@ -1,0 +1,23 @@
+{
+  "name": "Digitaya - Google Business Profile Setup & Local SEO Services",
+  "short_name": "Digitaya",
+  "description": "Help your local business get found on Google. Professional Google Business Profile setup, local SEO, and digital presence services.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#2563eb",
+  "theme_color": "#0d9488",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"]
+}
